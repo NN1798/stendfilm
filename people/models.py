@@ -15,7 +15,7 @@ class Person(models.Model):
                                                 MaxValueValidator(130)
                                             ]
     )
-    fact = models.TextField()
+    fact = models.TextField(blank=True)
 
     class Meta:
         abstract = True
@@ -25,17 +25,17 @@ class Director(Person):
     profession = models.ManyToManyField(
         to='Profession',
         related_name='directors',
-        verbose_name='Режиссер'
+        verbose_name='Профессия'
     )
 
     class Meta:
         ordering = ('first_name', 'last_name')
-        verbose_name = 'Монтажер'
-        verbose_name_plural = 'Монтажеры'
+        verbose_name = 'Режиссер'
+        verbose_name_plural = 'Режиссеры'
 
 
     def __str__(self):
-        return self.title
+        return f'{self.first_name} {self.last_name}'
 
 
 class Screenwriter(Person):
@@ -52,7 +52,7 @@ class Screenwriter(Person):
 
 
     def __str__(self):
-        return self.title
+        return f'{self.first_name} {self.last_name}'
 
 
 class Producer(Person):
@@ -69,7 +69,7 @@ class Producer(Person):
 
 
     def __str__(self):
-        return self.title
+        return f'{self.first_name} {self.last_name}'
 
 
 class Operator(Person):
@@ -86,7 +86,7 @@ class Operator(Person):
 
 
     def __str__(self):
-        return self.title
+        return f'{self.first_name} {self.last_name}'
 
 
 class Composer(Person):
@@ -103,7 +103,7 @@ class Composer(Person):
 
 
     def __str__(self):
-        return self.title
+        return f'{self.first_name} {self.last_name}'
 
 
 class Painter(Person):
@@ -120,7 +120,7 @@ class Painter(Person):
 
 
     def __str__(self):
-        return self.title
+        return f'{self.first_name} {self.last_name}'
 
 
 class Editor(Person):
@@ -137,7 +137,7 @@ class Editor(Person):
 
 
     def __str__(self):
-        return self.title
+        return f'{self.first_name} {self.last_name}'
 
 
 class Actor(Person):
@@ -154,11 +154,11 @@ class Actor(Person):
 
 
     def __str__(self):
-        return self.title
+        return f'{self.first_name} {self.last_name}'
 
 
 class Profession(models.Model):
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=50, verbose_name='Название')
 
     class Meta:
         ordering = ('title',)
