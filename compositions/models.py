@@ -8,7 +8,7 @@ from .validators import year_validator, budget_validator
 
 
 def composition_directory(instance, filename):
-    return 'media/{0}/{1}/{2}'.format(instance.title, instance.release_year, filename)
+    return '{0}/{1}/{2}'.format(instance.title, instance.release_year, filename)
 
 
 class Composition(models.Model):
