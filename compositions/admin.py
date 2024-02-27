@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Film, Serial
+from .models import Film, Serial, Company, Genre, Country, Award
 
 
 @admin.register(Film)
@@ -17,3 +17,15 @@ class SerialAdmin(admin.ModelAdmin):
     list_display_links = ('id', 'title')
     list_filter = ('title', 'release_year')
     search_fields = ('title',)
+
+
+admin.site.register(Company)
+
+
+admin.site.register(Genre)
+
+
+admin.site.register(Country)
+
+
+admin.site.register(Award)
