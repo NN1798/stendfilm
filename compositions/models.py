@@ -22,6 +22,7 @@ class Composition(models.Model):
         max_length=16,
         default='-',
         verbose_name='Бюджет',
+        blank=True,
         validators=[budget_validator])
     premiere = models.DateField(verbose_name='Премьера', default='-', blank=True)
     poster = models.ImageField(upload_to=composition_directory, default='-', blank=True, verbose_name='Постер')
