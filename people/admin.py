@@ -1,61 +1,57 @@
 from django.contrib import admin
 
-from .models import (
-    Director, Screenwriter, Producer,
-    Operator, Composer, Painter,
-    Editor, Actor, Profession
-)
+from people.models import models
 
 
-@admin.register(Director)
+@admin.register(models.Director)
 class DirectorAdmin(admin.ModelAdmin):
     list_display = ('id', 'first_name', 'last_name')
     list_display_links = ('id', 'first_name', 'last_name')
 
 
-@admin.register(Screenwriter)
+@admin.register(models.Screenwriter)
 class ScreenwriterAdmin(admin.ModelAdmin):
     list_display = ('id', 'first_name', 'last_name')
     list_display_links = ('id', 'first_name', 'last_name')
 
 
-@admin.register(Producer)
+@admin.register(models.Producer)
 class ProducerAdmin(admin.ModelAdmin):
     list_display = ('id', 'first_name', 'last_name')
     list_display_links = ('id', 'first_name', 'last_name')
 
 
-@admin.register(Operator)
+@admin.register(models.Operator)
 class OperatorAdmin(admin.ModelAdmin):
     list_display = ('id', 'first_name', 'last_name')
     list_display_links = ('id', 'first_name', 'last_name')
 
 
-@admin.register(Composer)
+@admin.register(models.Composer)
 class ComposerAdmin(admin.ModelAdmin):
     list_display = ('id', 'first_name', 'last_name')
     list_display_links = ('id', 'first_name', 'last_name')
 
 
-@admin.register(Painter)
+@admin.register(models.Painter)
 class PainterAdmin(admin.ModelAdmin):
     list_display = ('id', 'first_name', 'last_name')
     list_display_links = ('id', 'first_name', 'last_name')
 
 
-@admin.register(Editor)
+@admin.register(models.Editor)
 class EditorAdmin(admin.ModelAdmin):
     list_display = ('id', 'first_name', 'last_name')
     list_display_links = ('id', 'first_name', 'last_name')
 
 
-@admin.register(Actor)
+@admin.register(models.Actor)
 class ActorAdmin(admin.ModelAdmin):
     list_display = ('id', 'first_name', 'last_name')
     list_display_links = ('id', 'first_name', 'last_name')
 
 
-@admin.register(Profession)
+@admin.register(models.Profession)
 class ProfessionAdmin(admin.ModelAdmin):
     list_display = ('id', 'title')
     list_display_links = ('id', 'title')
