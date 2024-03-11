@@ -3,13 +3,18 @@ from django.core.validators import MaxValueValidator
 
 
 def person_directory(instance, filename):
-    return '{0}/{1}/{2}/{3}'.format(instance.first_name, instance.last_name, instance.birth_date, filename)
+    return '{0}/{1}/{2}/{3}'.format(instance.first_name, instance.last_name,
+                                    instance.birth_date, filename)
 
 
 class Person(models.Model):
     first_name = models.CharField(max_length=105, verbose_name='Имя')
     last_name = models.CharField(max_length=65, verbose_name='Фамилия')
-    photo = models.ImageField(upload_to=person_directory, default='-', blank=True, verbose_name='Фото')
+    photo = models.ImageField(
+        upload_to=person_directory,
+        default='-',
+        blank=True,
+        verbose_name='Фото')
     birth_date = models.DateField()
     age = models.PositiveIntegerField(validators=[
                                                 MaxValueValidator(130)
