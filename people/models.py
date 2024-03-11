@@ -3,7 +3,7 @@ from django.core.validators import MaxValueValidator
 
 
 def person_directory(instance, filename):
-    return 'media/{0}/{1}/{2}/{3}'.format(instance.first_name, instance.last_name, instance.birth_date, filename)
+    return '{0}/{1}/{2}/{3}'.format(instance.first_name, instance.last_name, instance.birth_date, filename)
 
 
 class Person(models.Model):
