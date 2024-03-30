@@ -13,6 +13,11 @@ def composition_directory(instance, filename):
 
 class Composition(models.Model):
     title = models.CharField(max_length=100, verbose_name='Название')
+    company = models.ManyToManyField(
+        to='Company',
+        related_name='serials',
+        verbose_name='Год производства'
+    )
     release_year = models.CharField(
         max_length=4,
         verbose_name='Год выпуска',
@@ -27,12 +32,6 @@ class Composition(models.Model):
     premiere = models.DateField(verbose_name='Премьера', default='-', blank=True)
     poster = models.ImageField(upload_to=composition_directory, default='-', blank=True, verbose_name='Постер')
     description = models.TextField(max_length=2000, default='-', verbose_name='Описание')
-
-    class Meta:
-        abstract = True
-
-
-class Film(Composition):
     country = models.ManyToManyField(
         to='Country',
         related_name='films',
@@ -92,85 +91,12 @@ class Film(Composition):
 
     class Meta:
         ordering = ('-release_year',)
-        verbose_name = 'Фильм'
-        verbose_name_plural = 'Фильмы'
+        verbose_name = 'Композиция'
+        verbose_name_plural = 'Композиции'
 
 
-    def __str__(self):
-        return self.title
-
-
-class Serial(Composition):
-    company = models.ManyToManyField(
-        to='Company',
-        related_name='serials',
-        verbose_name='Год производства'
-    )
-    country = models.ManyToManyField(
-        to='Country',
-        related_name='serials',
-        verbose_name='Страна'
-    )
-    genre = models.ManyToManyField(
-        to='Genre',
-        related_name='serials',
-        verbose_name='Жанр'
-    )
-    director = models.ManyToManyField(
-        to=Director,
-        related_name='serials',
-        verbose_name='Режиссер'
-    )
-    screenwriter = models.ManyToManyField(
-        to=Screenwriter,
-        related_name='serials',
-        verbose_name='Сценарист'
-    )
-    producer = models.ManyToManyField(
-        to=Producer,
-        related_name='serials',
-        verbose_name='Продюсер'
-    )
-    operator = models.ManyToManyField(
-        to=Operator,
-        related_name='serials',
-        verbose_name='Оператор'
-    )
-    сomposer = models.ManyToManyField(
-        to=Composer,
-        related_name='serials',
-        verbose_name='Композитор'
-    )
-    painter = models.ManyToManyField(
-        to=Painter,
-        related_name='serials',
-        verbose_name='Художник'
-    )
-    editor = models.ManyToManyField(
-        to=Editor,
-        related_name='serials',
-        verbose_name='Монтажер'
-    )
-    actor = models.ManyToManyField(
-        to=Actor,
-        related_name='serials',
-        verbose_name='Актер'
-    )
-    award = models.ManyToManyField(
-        to='Award',
-        related_name='serials',
-        verbose_name='Награда',
-        blank=True
-    )
-
-    class Meta:
-        ordering = ('-release_year',)
-        verbose_name = 'Сериал'
-        verbose_name_plural = 'Сериалы'
-
-
-    def __str__(self):
-        return self.title
+        def __str__(self):
+            return self.title
 
 
 class Company(models.Model):
