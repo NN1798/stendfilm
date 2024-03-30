@@ -12,7 +12,11 @@ def composition_directory(instance, filename):
 
 
 class Composition(models.Model):
+    TYPES = (('tv-series', 'Сериал')
+            ('movie', 'Фильм'))
+    
     title = models.CharField(max_length=100, verbose_name='Название')
+    type = models.CharField(verbose_name='Тип', max_length=50, choices=TYPES)
     company = models.ManyToManyField(
         to='Company',
         related_name='serials',
