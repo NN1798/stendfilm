@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from people.models import models
+from . import models
 
 
 @admin.register(models.Director)
