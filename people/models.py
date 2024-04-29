@@ -47,7 +47,7 @@ class Screenwriter(Person):
     profession = models.ManyToManyField(
         to='Profession',
         related_name='screenwriters',
-        verbose_name='Режиссер'
+        verbose_name='Профессия'
     )
 
     class Meta:
@@ -64,7 +64,7 @@ class Producer(Person):
     profession = models.ManyToManyField(
         to='Profession',
         related_name='producers',
-        verbose_name='Режиссер'
+        verbose_name='Профессия'
     )
 
     class Meta:
@@ -81,7 +81,7 @@ class Operator(Person):
     profession = models.ManyToManyField(
         to='Profession',
         related_name='operators',
-        verbose_name='Режиссер'
+        verbose_name='Профессия'
     )
 
     class Meta:
@@ -98,7 +98,7 @@ class Composer(Person):
     profession = models.ManyToManyField(
         to='Profession',
         related_name='composers',
-        verbose_name='Режиссер'
+        verbose_name='Профессия'
     )
 
     class Meta:
@@ -115,7 +115,7 @@ class Painter(Person):
     profession = models.ManyToManyField(
         to='Profession',
         related_name='painters',
-        verbose_name='Режиссер'
+        verbose_name='Профессия'
     )
 
     class Meta:
@@ -132,7 +132,7 @@ class Editor(Person):
     profession = models.ManyToManyField(
         to='Profession',
         related_name='editors',
-        verbose_name='Режиссер'
+        verbose_name='Профессия'
     )
 
     class Meta:
@@ -149,7 +149,7 @@ class Actor(Person):
     profession = models.ManyToManyField(
         to='Profession',
         related_name='actors',
-        verbose_name='Режиссер'
+        verbose_name='Профессия'
     )
 
     class Meta:
