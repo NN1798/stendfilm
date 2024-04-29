@@ -101,8 +101,8 @@ class Composition(models.Model):
         verbose_name_plural = 'Композиции'
 
 
-        def __str__(self):
-            return self.title
+    def __str__(self):
+        return self.title
 
 
 class Company(models.Model):
