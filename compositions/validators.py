@@ -7,6 +7,6 @@ year_validator = RegexValidator(
 )
 
 budget_validator = RegexValidator(
-    regex='^[1-9]\\d*|0$',
+    regex='^[1-9]\d*|0$',
     message='Введите неотрицательное число'
 )
