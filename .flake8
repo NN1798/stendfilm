@@ -1,4 +1,0 @@
-[flake8]
-exclude = .git, __pacache__, venv, __init__.py, migrations
-ignore = E303, E302
-max-line-length = 109

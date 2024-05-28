@@ -1,5 +1,9 @@
 repos:
-  - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.4.0
+  - repo: https://github.com/pycqa/flake8
+    rev: main
     hooks:
       - id: flake8
+        args:
+          - --max-line-length=109
+          - --ignore=E303,E302
+          - --exclude=.git,__pycache__,venv,__init__.py,migrations
