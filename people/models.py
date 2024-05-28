@@ -16,10 +16,7 @@ class Person(models.Model):
         blank=True,
         verbose_name='Фото')
     birth_date = models.DateField()
-    age = models.PositiveIntegerField(validators=[
-                                                MaxValueValidator(130)
-                                            ]
-    )
+    age = models.PositiveIntegerField(validators=[MaxValueValidator(130)])
     fact = models.TextField(blank=True)
 
     class Meta:
