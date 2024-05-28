@@ -1,11 +1,16 @@
 from django.contrib import admin
 
-from .models import Composition, Company, Genre, Country, Award, Rating, Comment
+from .models import (
+    Composition, Company, Genre, Country, Award, Rating, Comment
+)
 
 
 @admin.register(Composition)
 class CompositionAdmin(admin.ModelAdmin):
-    list_display = ('id', 'title', 'type', 'release_year', 'get_average_rating', 'get_count_comment',)
+    list_display = (
+        'id', 'title', 'type', 'release_year',
+        'get_average_rating', 'get_count_comment',
+    )
     list_display_links = ('id', 'title')
     list_filter = ('title', 'release_year', 'type')
     search_fields = ('title',)
